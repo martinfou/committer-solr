@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.embedded.EmbeddedSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -77,7 +77,7 @@ public class SolrCommitterTest extends AbstractSolrTestCase {
         committer = new SolrCommitter(new ISolrServerFactory() {
             private static final long serialVersionUID = 4648990433469043210L;
             @Override
-            public SolrServer createSolrServer(SolrCommitter solrCommitter) {
+            public SolrClient createSolrServer(SolrCommitter solrCommitter) {
                 return server;
             }
         });
